@@ -8,7 +8,10 @@ use tokio::time::sleep;
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
-    let mut srt_socket = SrtSocket::builder().listen(":3333").await?;
+    pretty_env_logger::init();
+    let address = ":3333";
+    log::info!("listening at [{}]", address);
+    let mut srt_socket = SrtSocket::builder().listen(address).await?;
 
     let mut stream = stream::unfold(0, |count| async move {
         print!("\rSent {:?} packets", count);
