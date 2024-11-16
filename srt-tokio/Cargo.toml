@@ -54,8 +54,11 @@ default-features = false
 version = "0.5"
 
 [dev-dependencies.tokio]
-features = ["rt-multi-thread"]
+features = ["rt-multi-thread", "fs"]
 version = "1"
+
+[dev-dependencies.mpeg2ts-reader]
+version = "0.15"
 
 [dev-dependencies.tokio-util]
 features = ["net", "codec"]
